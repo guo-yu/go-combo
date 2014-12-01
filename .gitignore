@@ -1,0 +1,7 @@
+.DS_*
+node_modules
+bower_*
+*.sublime*
+psd
+thumb
+*.log
