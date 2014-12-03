@@ -1,6 +1,6 @@
-## go-combo
+## Go Combo
 
-a go combo service for static files, support pulling modules using bower.
+a static files combo service in Golang, support pulling modules using bower.
 
 ### Installation
 ```bash
@@ -14,11 +14,17 @@ package main
 import "github.com/turingou/go-combo"
 
 func main() {
-  combo.Fromfile(
+  distFiles := combo.Fromfiles(
     "./combo.css",
     "./style.css"
   )
 }
+```
+
+### Tests
+
+```bash
+$ go test
 ```
 
 ### Contributing
