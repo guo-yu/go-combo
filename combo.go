@@ -6,14 +6,11 @@ import (
 	"net/url"
 	"strings"
 
-	. "github.com/tj/go-debug"
 	. "github.com/turingou/go-endswith"
 	"github.com/turingou/go-fs"
 )
 
 const VERSION = "0.1.0"
-
-var debug = Debug("combo")
 
 func Middleware(uri string) string {
 	return ""
@@ -30,8 +27,6 @@ func ComboTo(dist string, files []string) error {
 }
 
 func Combo(files []string) (string, error) {
-	debug("%s", files)
-
 	if len(files) == 0 {
 		return "", errors.New("Not enough files to combo")
 	}
