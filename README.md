@@ -15,19 +15,24 @@ import "fmt"
 import "github.com/turingou/go-combo"
 
 func main() {
-  distFiles, err := combo.Fromfiles(
-    "./combo.css",
-    "./style.css"
-  )
+  files := []string{
+    "./js/a.js",
+    "./js/b.js",
+  }
+  err := combo.ComboTo("./js/dist.js", files)
 
   if err != nil {
-    fmt.Println(err)
-    return
+    panic(err)
   }
 
-  fmt.Println("Created success")
+  fmt.Println("Dist file created success")
 }
 ```
+
+### API
+
+- ComboTo(dist string, files []string) error 
+- Combo(files []string) (string, error)
 
 ### Tests
 
