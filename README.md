@@ -11,13 +11,21 @@ $ go get github.com/turingou/go-combo
 ```go
 package main
 
+import "fmt"
 import "github.com/turingou/go-combo"
 
 func main() {
-  distFiles := combo.Fromfiles(
+  distFiles, err := combo.Fromfiles(
     "./combo.css",
     "./style.css"
   )
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+
+  fmt.Println("Created success")
 }
 ```
 
