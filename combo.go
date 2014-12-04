@@ -1,14 +1,15 @@
 package combo
 
-import "log"
-import "errors"
-import "strings"
-import "net/url"
+import (
+	"errors"
+	"log"
+	"net/url"
+	"strings"
 
-import . "github.com/tj/go-debug"
-
-import "github.com/turingou/go-fs"
-import . "github.com/turingou/go-endswith"
+	. "github.com/tj/go-debug"
+	. "github.com/turingou/go-endswith"
+	"github.com/turingou/go-fs"
+)
 
 const VERSION = "0.1.0"
 
@@ -16,6 +17,16 @@ var debug = Debug("combo")
 
 func Middleware(uri string) string {
 	return ""
+}
+
+func ComboTo(dist string, files []string) error {
+	distStr, err := Combo(files)
+
+	if err != nil {
+		return err
+	}
+
+	return fs.WriteFile(dist, distStr)
 }
 
 func Combo(files []string) (string, error) {
